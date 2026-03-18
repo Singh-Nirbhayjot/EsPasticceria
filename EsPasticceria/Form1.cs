@@ -78,7 +78,13 @@ namespace EsPasticceria
                 MessageBox.Show("Seleziona se la crostata ha decorazione o no.");
                 return;
             }
-            
+            TipoFrolla frolla = (TipoFrolla)cmbTipoFrolla.SelectedItem;  
+            string nome = txtNome.Text;
+            if (rdbDecorazioneSi.Checked)
+            {
+                bool decorazione = true;
+            }
+
         }
     }
 }
