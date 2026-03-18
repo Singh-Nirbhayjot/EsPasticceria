@@ -33,6 +33,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbTipoMarmellata = new System.Windows.Forms.ComboBox();
+            this.cmbTipoFrolla = new System.Windows.Forms.ComboBox();
+            this.txtDiametro = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnSalva = new System.Windows.Forms.Button();
             this.rdbDecorazioneNo = new System.Windows.Forms.RadioButton();
             this.rdbDecorazioneSi = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,16 +47,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnSalva = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnOrdina = new System.Windows.Forms.Button();
+            this.btnCerca = new System.Windows.Forms.Button();
             this.txtCerca = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnCerca = new System.Windows.Forms.Button();
-            this.txtDiametro = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbTipoFrolla = new System.Windows.Forms.ComboBox();
-            this.cmbTipoMarmellata = new System.Windows.Forms.ComboBox();
+            this.btnOrdina = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +60,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(340, 9);
+            this.label1.Location = new System.Drawing.Point(349, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 20);
             this.label1.TabIndex = 0;
@@ -69,11 +69,14 @@
             // lstRicette
             // 
             this.lstRicette.FormattingEnabled = true;
+            this.lstRicette.HorizontalScrollbar = true;
             this.lstRicette.ItemHeight = 16;
-            this.lstRicette.Location = new System.Drawing.Point(255, 38);
+            this.lstRicette.Location = new System.Drawing.Point(133, 38);
+            this.lstRicette.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.lstRicette.Name = "lstRicette";
-            this.lstRicette.Size = new System.Drawing.Size(310, 292);
+            this.lstRicette.Size = new System.Drawing.Size(446, 292);
             this.lstRicette.TabIndex = 1;
+            this.lstRicette.SelectedIndexChanged += new System.EventHandler(this.lstRicette_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -109,10 +112,55 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtNome);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(571, 38);
+            this.panel2.Location = new System.Drawing.Point(582, 38);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(217, 292);
             this.panel2.TabIndex = 4;
+            // 
+            // cmbTipoMarmellata
+            // 
+            this.cmbTipoMarmellata.FormattingEnabled = true;
+            this.cmbTipoMarmellata.Location = new System.Drawing.Point(105, 121);
+            this.cmbTipoMarmellata.Name = "cmbTipoMarmellata";
+            this.cmbTipoMarmellata.Size = new System.Drawing.Size(96, 24);
+            this.cmbTipoMarmellata.TabIndex = 15;
+            this.cmbTipoMarmellata.SelectedIndexChanged += new System.EventHandler(this.cmbTipoMarmellata_SelectedIndexChanged);
+            // 
+            // cmbTipoFrolla
+            // 
+            this.cmbTipoFrolla.FormattingEnabled = true;
+            this.cmbTipoFrolla.Location = new System.Drawing.Point(105, 62);
+            this.cmbTipoFrolla.Name = "cmbTipoFrolla";
+            this.cmbTipoFrolla.Size = new System.Drawing.Size(96, 24);
+            this.cmbTipoFrolla.TabIndex = 14;
+            this.cmbTipoFrolla.SelectedIndexChanged += new System.EventHandler(this.cmbTipoFrolla_SelectedIndexChanged);
+            // 
+            // txtDiametro
+            // 
+            this.txtDiametro.Location = new System.Drawing.Point(105, 211);
+            this.txtDiametro.Name = "txtDiametro";
+            this.txtDiametro.Size = new System.Drawing.Size(96, 22);
+            this.txtDiametro.TabIndex = 13;
+            this.txtDiametro.TextChanged += new System.EventHandler(this.txtDiametro_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(12, 214);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 22);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Diametro";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnSalva
+            // 
+            this.btnSalva.Location = new System.Drawing.Point(70, 266);
+            this.btnSalva.Name = "btnSalva";
+            this.btnSalva.Size = new System.Drawing.Size(75, 23);
+            this.btnSalva.TabIndex = 11;
+            this.btnSalva.Text = "SALVA";
+            this.btnSalva.UseVisualStyleBackColor = true;
+            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
             // 
             // rdbDecorazioneNo
             // 
@@ -124,6 +172,7 @@
             this.rdbDecorazioneNo.TabStop = true;
             this.rdbDecorazioneNo.Text = "NO";
             this.rdbDecorazioneNo.UseVisualStyleBackColor = true;
+            this.rdbDecorazioneNo.CheckedChanged += new System.EventHandler(this.rdbDecorazioneNo_CheckedChanged);
             // 
             // rdbDecorazioneSi
             // 
@@ -135,6 +184,7 @@
             this.rdbDecorazioneSi.TabStop = true;
             this.rdbDecorazioneSi.Text = "SI";
             this.rdbDecorazioneSi.UseVisualStyleBackColor = true;
+            this.rdbDecorazioneSi.CheckedChanged += new System.EventHandler(this.rdbDecorazioneSi_CheckedChanged);
             // 
             // label7
             // 
@@ -151,6 +201,7 @@
             this.txtTempoCottura.Name = "txtTempoCottura";
             this.txtTempoCottura.Size = new System.Drawing.Size(96, 22);
             this.txtTempoCottura.TabIndex = 7;
+            this.txtTempoCottura.TextChanged += new System.EventHandler(this.txtTempoCottura_TextChanged);
             // 
             // label6
             // 
@@ -185,6 +236,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(96, 22);
             this.txtNome.TabIndex = 1;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // label3
             // 
@@ -195,35 +247,26 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Nome ricetta";
             // 
-            // btnSalva
-            // 
-            this.btnSalva.Location = new System.Drawing.Point(70, 266);
-            this.btnSalva.Name = "btnSalva";
-            this.btnSalva.Size = new System.Drawing.Size(75, 23);
-            this.btnSalva.TabIndex = 11;
-            this.btnSalva.Text = "SALVA";
-            this.btnSalva.UseVisualStyleBackColor = true;
-            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnCerca);
             this.panel3.Controls.Add(this.txtCerca);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.btnOrdina);
-            this.panel3.Location = new System.Drawing.Point(200, 347);
+            this.panel3.Location = new System.Drawing.Point(143, 350);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(412, 48);
             this.panel3.TabIndex = 5;
             // 
-            // btnOrdina
+            // btnCerca
             // 
-            this.btnOrdina.Location = new System.Drawing.Point(18, 13);
-            this.btnOrdina.Name = "btnOrdina";
-            this.btnOrdina.Size = new System.Drawing.Size(75, 23);
-            this.btnOrdina.TabIndex = 0;
-            this.btnOrdina.Text = "ORDINA";
-            this.btnOrdina.UseVisualStyleBackColor = true;
+            this.btnCerca.Location = new System.Drawing.Point(331, 13);
+            this.btnCerca.Name = "btnCerca";
+            this.btnCerca.Size = new System.Drawing.Size(75, 23);
+            this.btnCerca.TabIndex = 14;
+            this.btnCerca.Text = "CERCA";
+            this.btnCerca.UseVisualStyleBackColor = true;
+            this.btnCerca.Click += new System.EventHandler(this.btnCerca_Click);
             // 
             // txtCerca
             // 
@@ -231,6 +274,7 @@
             this.txtCerca.Name = "txtCerca";
             this.txtCerca.Size = new System.Drawing.Size(100, 22);
             this.txtCerca.TabIndex = 13;
+            this.txtCerca.TextChanged += new System.EventHandler(this.txtCerca_TextChanged);
             // 
             // label8
             // 
@@ -241,46 +285,15 @@
             this.label8.Text = "Cerca per marmellata";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnCerca
+            // btnOrdina
             // 
-            this.btnCerca.Location = new System.Drawing.Point(331, 13);
-            this.btnCerca.Name = "btnCerca";
-            this.btnCerca.Size = new System.Drawing.Size(75, 23);
-            this.btnCerca.TabIndex = 14;
-            this.btnCerca.Text = "CERCA";
-            this.btnCerca.UseVisualStyleBackColor = true;
-            // 
-            // txtDiametro
-            // 
-            this.txtDiametro.Location = new System.Drawing.Point(105, 211);
-            this.txtDiametro.Name = "txtDiametro";
-            this.txtDiametro.Size = new System.Drawing.Size(96, 22);
-            this.txtDiametro.TabIndex = 13;
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(12, 214);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 22);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Diametro";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // cmbTipoFrolla
-            // 
-            this.cmbTipoFrolla.FormattingEnabled = true;
-            this.cmbTipoFrolla.Location = new System.Drawing.Point(105, 62);
-            this.cmbTipoFrolla.Name = "cmbTipoFrolla";
-            this.cmbTipoFrolla.Size = new System.Drawing.Size(96, 24);
-            this.cmbTipoFrolla.TabIndex = 14;
-            // 
-            // cmbTipoMarmellata
-            // 
-            this.cmbTipoMarmellata.FormattingEnabled = true;
-            this.cmbTipoMarmellata.Location = new System.Drawing.Point(105, 121);
-            this.cmbTipoMarmellata.Name = "cmbTipoMarmellata";
-            this.cmbTipoMarmellata.Size = new System.Drawing.Size(96, 24);
-            this.cmbTipoMarmellata.TabIndex = 15;
+            this.btnOrdina.Location = new System.Drawing.Point(18, 13);
+            this.btnOrdina.Name = "btnOrdina";
+            this.btnOrdina.Size = new System.Drawing.Size(97, 23);
+            this.btnOrdina.TabIndex = 0;
+            this.btnOrdina.Text = "ORDINA";
+            this.btnOrdina.UseVisualStyleBackColor = true;
+            this.btnOrdina.Click += new System.EventHandler(this.btnOrdina_Click);
             // 
             // Form1
             // 
@@ -288,11 +301,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lstRicette);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lstRicette);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
